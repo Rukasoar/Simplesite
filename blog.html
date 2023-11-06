@@ -31,6 +31,43 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
+<!-- Style modification to turn modal into popups -->
+<style>
+  /* Style for the modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  /* Style for the modal content */
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Style for the close button */
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+</style>
+
+
 </head>
 
 <body>
@@ -77,42 +114,45 @@
   <h2>Luca Lovato's Photo collection</h2>
 </div>
 
- <!-- Blog Section -->
+<!-- Blog Section -->
 <section class="blog">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <a href="group1-image1.jpg" data-lightbox="group1" data-title="Description for Image 1">
-          <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" alt="Image 1" class="blog-img">
-          <p>Short description for Image 1</p>
-        </a>
+        <div class="blog-img-container">
+          <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" alt="Image 1" class="blog-img" onclick="openModal('group1')">
+          <div class="modal" id="group1">
+            <span class="close" onclick="closeModal('group1')">&times;</span>
+            <img src="group1-image1.jpg" alt="Image 1">
+            <p>Description for Image 1</p>
+            <!-- Add more images and descriptions here -->
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
-        <a href="group1-image2.jpg" data-lightbox="group1" data-title="Description for Image 2">
-          <img src="group1-image2.jpg" alt="Image 2" class="blog-img">
-          <p>Short description for Image 2</p>
-        </a>
+        <!-- Repeat this structure for other images in group 1 -->
       </div>
-      <!-- Add more image cards for group 1 here -->
     </div>
     <div class="row">
       <div class="col-md-4">
-        <a href="group2-image1.jpg" data-lightbox="group2" data-title="Description for Image 1">
-          <img src="group2-image1.jpg" alt="Image 1" class="blog-img">
-          <p>Short description for Image 1</p>
-        </a>
+        <div class="blog-img-container">
+          <img src="group2-image1.jpg" alt="Image 1" class="blog-img" onclick="openModal('group2')">
+          <div class="modal" id="group2">
+            <span class="close" onclick="closeModal('group2')">&times;</span>
+            <img src="group2-image1.jpg" alt="Image 1">
+            <p>Description for Image 1</p>
+            <!-- Add more images and descriptions here -->
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
-        <a href="group2-image2.jpg" data-lightbox="group2" data-title="Description for Image 2">
-          <img src="group2-image2.jpg" alt="Image 2" class="blog-img">
-          <p>Short description for Image 2</p>
-        </a>
+        <!-- Repeat this structure for other images in group 2 -->
       </div>
-      <!-- Add more image cards for group 2 here -->
     </div>
     <!-- Add more image groups as needed -->
   </div>
 </section>
+
 
 
 
@@ -133,11 +173,11 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-   <!-- JavaScript for Image Pop-up -->
-   <script>
+  <script>
+    // Image data for each group
     const imageSets = {
       group1: [
-        { src: "group1-image1.jpghttps://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true", description: "Description for Image 1" },
+        { src: "group1-image1.jhttps://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true", description: "Description for Image 1" },
         { src: "group1-image2.jpg", description: "Description for Image 2" }
         // Add more images and descriptions for group 1 as needed
       ],
@@ -148,44 +188,18 @@
       ]
       // Add more image sets as needed
     };
-
+  
     function openImageModal(group) {
-      const modal = document.getElementById("imageModal");
-      const modalContent = document.getElementById("modalContent");
-
-      modalContent.innerHTML = ""; // Clear previous content
-
-      imageSets[group].forEach((image, index) => {
-        const imgElement = document.createElement("img");
-        imgElement.src = image.src;
-        imgElement.alt = `Image ${index + 1}`;
-
-        const description = document.createElement("p");
-        description.textContent = image.description;
-
-        const imageContainer = document.createElement("div");
-        imageContainer.classList.add("image-container");
-        imageContainer.appendChild(imgElement);
-        imageContainer.appendChild(description);
-
-        modalContent.appendChild(imageContainer);
-      });
-
+      const modal = document.getElementById(group);
       modal.style.display = "block";
     }
-
-    function closeImageModal() {
-      const modal = document.getElementById("imageModal");
+  
+    function closeImageModal(group) {
+      const modal = document.getElementById(group);
       modal.style.display = "none";
     }
-
-    window.onclick = function (event) {
-      const modal = document.getElementById("imageModal");
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
   </script>
+  
 
 </body>
 
