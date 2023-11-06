@@ -73,31 +73,28 @@
     </section><!-- Breadcrumbs Section -->
 
 <!-- ======= Blog Section ======= -->
+<!-- Blog Section -->
 <div class="header">
-  <h2>Luca Lovato's Photo collection</h2>
+  <h2>Luca Lovato's Photo Collection</h2>
+</div>
+<div class="photo-grid">
+  <div class="photo-item" data-aos="fade-up" data-aos-delay="200">
+    <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" class="photo" alt="Photo 1" onclick="showFullImage('IMAGE_URL_1')">
+  </div>
+  <div class="photo-item" data-aos="fade-up" data-aos-delay="200">
+    <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/Nell-Pumpkin-7.jpg?raw=true" class="photo" alt="Photo 2" onclick="showFullImage('IMAGE_URL_2')">
+  </div>
+  <div class="photo-item" data-aos="fade-up" data-aos-delay="200">
+    <img src="IMAGE_URL_3" class="photo" alt="Photo 3" onclick="showFullImage('IMAGE_URL_3')">
+  </div>
+  <!-- Add more photo items as needed -->
 </div>
 
-<!-- Blog Section -->
-<section class="blog">
-  <div class="photo-grid">
-    <div class="photo-item" data-aos="fade-up" data-aos-delay="200" onclick="showFullImage('image1')">
-      <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" class="photo" alt="Photo 1">
-    </div>
-    <div class="photo-item" data-aos="fade-up" data-aos-delay="200" onclick="showFullImage('image2')">
-      <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/Nell-Pumpkin-7.jpg?raw=true" class="photo" alt="Photo 2">
-    </div>
-    <div class="photo-item" data-aos="fade-up" data-aos-delay="200" onclick="showFullImage('image3')">
-      <img src="IMAGE_URL_3" class="photo" alt="Photo 3">
-    </div>
-    <!-- Add more photo items as needed -->
-  </div>
-
-  <!-- Full-Sized Photo Modal -->
-  <div id="fullImageModal" class="modal">
-    <span class="close" onclick="closeFullImageModal()">&times;</span>
-    <img id="fullImage" src="" alt="Full-Sized Photo">
-  </div>
-</section>
+<!-- Full-Sized Photo Modal -->
+<div id="fullImageModal" class="modal">
+  <span class="close" onclick="closeFullImageModal()">&times;</span>
+  <img id="fullImage" src="" alt="Full-Sized Photo">
+</div>
 
 
 
@@ -121,12 +118,11 @@
 
   <script>
     // JavaScript to show full-sized image in a modal
-    function showFullImage(imageId) {
+    function showFullImage(imageUrl) {
       const modal = document.getElementById("fullImageModal");
       const fullImage = document.getElementById("fullImage");
-      const imageSrc = document.getElementById(imageId).src;
 
-      fullImage.src = imageSrc;
+      fullImage.src = imageUrl;
       modal.style.display = "block";
     }
 
