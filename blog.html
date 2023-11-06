@@ -27,6 +27,10 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- Add this to the head section of your HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
 </head>
 
 <body>
@@ -74,41 +78,42 @@
 </div>
 
  <!-- Blog Section -->
- <section class="blog">
+<section class="blog">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="blog-card">
-          <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" alt="Image 1" class="blog-img" onclick="openImageModal('group1')">
+        <a href="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" data-lightbox="group1" data-title="Description for Image 1">
+          <img src="group1-image1.jpg" alt="Image 1" class="blog-img">
           <p>Short description for Image 1</p>
-        </div>
+        </a>
       </div>
       <div class="col-md-4">
-        <div class="blog-card">
-          <img src="group1-image2.jpg" alt="Image 2" class="blog-img" onclick="openImageModal('group1')">
+        <a href="group1-image2.jpg" data-lightbox="group1" data-title="Description for Image 2">
+          <img src="group1-image2.jpg" alt="Image 2" class="blog-img">
           <p>Short description for Image 2</p>
-        </div>
+        </a>
       </div>
       <!-- Add more image cards for group 1 here -->
     </div>
     <div class="row">
       <div class="col-md-4">
-        <div class="blog-card">
-          <img src="group2-image1.jpg" alt="Image 1" class="blog-img" onclick="openImageModal('group2')">
+        <a href="group2-image1.jpg" data-lightbox="group2" data-title="Description for Image 1">
+          <img src="group2-image1.jpg" alt="Image 1" class="blog-img">
           <p>Short description for Image 1</p>
-        </div>
+        </a>
       </div>
       <div class="col-md-4">
-        <div class "blog-card">
-          <img src="group2-image2.jpg" alt="Image 2" class="blog-img" onclick="openImageModal('group2')">
+        <a href="group2-image2.jpg" data-lightbox="group2" data-title="Description for Image 2">
+          <img src="group2-image2.jpg" alt="Image 2" class="blog-img">
           <p>Short description for Image 2</p>
-        </div>
+        </a>
       </div>
       <!-- Add more image cards for group 2 here -->
     </div>
     <!-- Add more image groups as needed -->
   </div>
 </section>
+
 
 
       <!-- End About Section -->
