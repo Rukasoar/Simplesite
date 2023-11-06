@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Blog</title>
-  <meta name="description" content="This page is my personal blog" >
+  <title>Photo Portfolio</title>
+  <meta name="description" content="This page is my personal porfolio of photos" >
   <meta name="keywords" content="Daniel Brannon, blog" >
 
   <!-- Favicons -->
@@ -28,40 +28,26 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
 <!-- Style modification to turn modal into popups -->
-  <style>
-    /* Style for the modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    /* Style for the modal content */
-    .modal-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    /* Style for the close button */
-    .close {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px;
-      cursor: pointer;
-    }
-  </style>
+<style>
+  /* CSS for the grid of photos */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .photo-item {
+    width: 100%; /* Square cropped photos */
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop the photos */
+  }
+</style>
 
 
 </head>
@@ -112,40 +98,23 @@
 
 <!-- Blog Section -->
 <section class="blog">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="blog-img-container">
-          <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" alt="Image 1" class="blog-img" onclick="openModal('group1')">
-          <div class="modal" id="group1">
-            <span class="close" onclick="closeModal('group1')">&times;</span>
-            <img src="group1-image1.jpg" alt="Image 1">
-            <p>Description for Image 1</p>
-            <!-- Add more images and descriptions here -->
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- Repeat this structure for other images in group 1 -->
-      </div>
+  <div class="photo-grid">
+    <div class="photo-item" data-aos="fade-up" data-aos-delay="200" onclick="showFullImage('image1')">
+      <img src="IMAGE_URL_1" class="photo" alt="Photo 1">
     </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="blog-img-container">
-          <img src="group2-image1.jpg" alt="Image 1" class="blog-img" onclick="openModal('group2')">
-          <div class="modal" id="group2">
-            <span class="close" onclick="closeModal('group2')">&times;</span>
-            <img src="group2-image1.jpg" alt="Image 1">
-            <p>Description for Image 1</p>
-            <!-- Add more images and descriptions here -->
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <!-- Repeat this structure for other images in group 2 -->
-      </div>
+    <div class="photo-item" data-aos="fade-up" data-aos-delay="200" onclick="showFullImage('image2')">
+      <img src="IMAGE_URL_2" class="photo" alt="Photo 2">
     </div>
-    <!-- Add more image groups as needed -->
+    <div class="photo-item" data-aos="fade-up" data-aos-delay="200" onclick="showFullImage('image3')">
+      <img src="IMAGE_URL_3" class="photo" alt="Photo 3">
+    </div>
+    <!-- Add more photo items as needed -->
+  </div>
+
+  <!-- Full-Sized Photo Modal -->
+  <div id="fullImageModal" class="modal">
+    <span class="close" onclick="closeFullImageModal()">&times;</span>
+    <img id="fullImage" src="" alt="Full-Sized Photo">
   </div>
 </section>
 
@@ -170,30 +139,27 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // Image data for each group
-    const imageSets = {
-      group1: [
-        { src: "https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true", description: "Description for Image 1" },
-        { src: "group1-image2.jpg", description: "Description for Image 2" }
-        // Add more images and descriptions for group 1 as needed
-      ],
-      group2: [
-        { src: "group2-image1.jpg", description: "Description for Image 1" },
-        { src: "group2-image2.jpg", description: "Description for Image 2" }
-        // Add more images and descriptions for group 2 as needed
-      ]
-      // Add more image sets as needed
-    };
-  
-    function openImageModal(group) {
-      const modal = document.getElementById(group);
+    // JavaScript to show full-sized image in a modal
+    function showFullImage(imageId) {
+      const modal = document.getElementById("fullImageModal");
+      const fullImage = document.getElementById("fullImage");
+      const imageSrc = document.getElementById(imageId).src;
+
+      fullImage.src = imageSrc;
       modal.style.display = "block";
     }
-  
-    function closeImageModal(group) {
-      const modal = document.getElementById(group);
+
+    function closeFullImageModal() {
+      const modal = document.getElementById("fullImageModal");
       modal.style.display = "none";
     }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("fullImageModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
   </script>
   
 
