@@ -73,50 +73,43 @@
   <h2>Luca Lovato's Photo collection</h2>
 </div>
 
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h2>4 separate photo collections to view</h2>
-      <h5>These four photo collections are some of my best works, spanning different themes and ideas.</h5>
-      <div class="image-container">
-        <div class="image" data-aos="fade-up" data-aos-delay="200">
-          <p style="font-size: 25px">1. Contagious by Jonah Berger</p>
-          <div class="carousel">
-            <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" class="blogimg" style="width:300px;height:300px;">
-            <img src="IMAGE_URL_2" class="blogimg" style="width:300px;height:300px;">
-            <img src="IMAGE_URL_3" class="blogimg" style="width:300px;height:300px;">
-          </div>
-          <div class="description">
-            <p>Short description for the first photo.</p>
-          </div>
+ <!-- Blog Section -->
+ <section class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="blog-card">
+          <img src="group1-image1.jpg" alt="Image 1" class="blog-img" onclick="openImageModal('group1')">
+          <p>Short description for Image 1</p>
         </div>
-        <div class="image" data-aos="fade-up" data-aos-delay="200">
-          <p style="font-size: 25px">2. Don't Make Me Think by Steve Krug</p>
-          <div class="carousel">
-            <img src="IMAGE_URL_4" class="blogimg" style="width:300px;height:300px;">
-            <img src="IMAGE_URL_5" class="blogimg" style="width:300px;height:300px;">
-            <img src="IMAGE_URL_6" class="blogimg" style="width:300px;height:300px;">
-          </div>
-          <div class="description">
-            <p>Short description for the second photo.</p>
-          </div>
-        </div>
-        <div class="image" data-aos="fade-up" data-aos-delay="200">
-          <p style="font-size: 25px">3. Influence by Robert Cialdini</p>
-          <div class="carousel">
-            <img src="IMAGE_URL_7" class="blogimg" style="width:300px;height:300px;">
-            <img src="IMAGE_URL_8" class="blogimg" style="width:300px;height:300px;">
-            <img src="IMAGE_URL_9" class="blogimg" style="width:300px;height:300px;">
-          </div>
-          <div class="description">
-            <p>Short description for the third photo.</p>
-          </div>
-        </div>
-        <!-- Repeat this structure for other images -->
       </div>
+      <div class="col-md-4">
+        <div class="blog-card">
+          <img src="group1-image2.jpg" alt="Image 2" class="blog-img" onclick="openImageModal('group1')">
+          <p>Short description for Image 2</p>
+        </div>
+      </div>
+      <!-- Add more image cards for group 1 here -->
     </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="blog-card">
+          <img src="group2-image1.jpg" alt="Image 1" class="blog-img" onclick="openImageModal('group2')">
+          <p>Short description for Image 1</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class "blog-card">
+          <img src="group2-image2.jpg" alt="Image 2" class="blog-img" onclick="openImageModal('group2')">
+          <p>Short description for Image 2</p>
+        </div>
+      </div>
+      <!-- Add more image cards for group 2 here -->
+    </div>
+    <!-- Add more image groups as needed -->
   </div>
-</div>
+</section>
+
 
       <!-- End About Section -->
   </main><!-- End #main -->
@@ -135,40 +128,59 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- JavaScript for the image gallery -->
-<script>
-  const images = document.querySelectorAll('.image');
-  images.forEach((image, index) => {
-      image.addEventListener('click', () => {
-          openImageModal(index);
+   <!-- JavaScript for Image Pop-up -->
+   <script>
+    const imageSets = {
+      group1: [
+        { src: "group1-image1.jpg", description: "Description for Image 1" },
+        { src: "group1-image2.jpg", description: "Description for Image 2" }
+        // Add more images and descriptions for group 1 as needed
+      ],
+      group2: [
+        { src: "group2-image1.jpg", description: "Description for Image 1" },
+        { src: "group2-image2.jpg", description: "Description for Image 2" }
+        // Add more images and descriptions for group 2 as needed
+      ]
+      // Add more image sets as needed
+    };
+
+    function openImageModal(group) {
+      const modal = document.getElementById("imageModal");
+      const modalContent = document.getElementById("modalContent");
+
+      modalContent.innerHTML = ""; // Clear previous content
+
+      imageSets[group].forEach((image, index) => {
+        const imgElement = document.createElement("img");
+        imgElement.src = image.src;
+        imgElement.alt = `Image ${index + 1}`;
+
+        const description = document.createElement("p");
+        description.textContent = image.description;
+
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("image-container");
+        imageContainer.appendChild(imgElement);
+        imageContainer.appendChild(description);
+
+        modalContent.appendChild(imageContainer);
       });
-  });
 
-  function openImageModal(index) {
-      // Create a modal for the image carousel
-      const modal = document.createElement('div');
-      modal.classList.add('modal');
-      modal.innerHTML = `
-          <span class="close" onclick="closeImageModal()">&times;</span>
-          <div class="image-carousel">
-              <img src="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true" alt="https://github.com/Rukasoar/Simplesite/blob/main/assets/img/hero-bg.jpg?raw=true">
-              <img src="IMAGE_URL_2" alt="Image 2">
-              <img src="IMAGE_URL_3" alt="Image 3">
-              <!-- Add more images as needed -->
-          </div>
-      `;
-      document.body.appendChild(modal);
-      modal.style.display = 'block';
+      modal.style.display = "block";
+    }
 
-      // Handle closing the modal
-      function closeImageModal() {
-          modal.style.display = 'none';
-          document.body.removeChild(modal);
+    function closeImageModal() {
+      const modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
       }
-
-      modal.querySelector('.close').addEventListener('click', closeImageModal);
-  }
-</script>
+    };
+  </script>
 
 </body>
 
