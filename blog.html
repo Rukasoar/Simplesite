@@ -68,91 +68,55 @@
       </div>
     </section><!-- Breadcrumbs Section -->
 
-    <!-- ======= Blog Section ======= -->
-    <div class="header">
-      <h2>Luca Lovato's Photo collection</h2>
-    </div>
-    
-    <div class="row">
-      <div class="leftcolumn">
-          <div class="card">
-              <h2>4 separate photo collections to view</h2>
-              <h5>These four photo collections are some of my best works, spanning different themes and ideas.</h5>
-              <div class="image-container">
-                  <div class="image" data-aos="fade-up" data-aos-delay="200">
-                      <p style="font-size: 25px">1. Contagious by Jonah Berger</p>
-                      <div class="carousel">
-                          <img src="https://github.com/dcbranno/Regna/blob/master/assets/img/contagious-img.jpg?raw=true" class="blogimg" style="width:300px;height:300px;">
-                          <img src="IMAGE_URL_2" class="blogimg" style="width:300px;height:300px;">
-                          <img src="IMAGE_URL_3" class="blogimg" style="width:300px;height:300px;">
-                      </div>
-                      <div class="description">
-                          <p>Short description for the first photo.</p>
-                      </div>
-                  </div>
-                  <div class="image" data-aos="fade-up" data-aos-delay="200">
-                      <p style="font-size: 25px">2. Don't Make Me Think by Steve Krug</p>
-                      <div class="carousel">
-                          <img src="https://github.com/dcbranno/Regna/blob/master/assets/img/think-img.jpg?raw=true" class="blogimg" style="width:300px;height:300px;">
-                          <img src="IMAGE_URL_5" class="blogimg" style="width:300px;height:300px;">
-                          <img src="IMAGE_URL_6" class="blogimg" style="width:300px;height:300px;">
-                      </div>
-                      <div class="description">
-                          <p>Short description for the second photo.</p>
-                      </div>
-                  </div>
-                  <div class="image" data-aos="fade-up" data-aos-delay="200">
-                      <p style="font-size: 25px">3. Influence by Robert Cialdini</p>
-                      <div class="carousel">
-                          <img src="https://github.com/dcbranno/Regna/blob/master/assets/img/influence-img.jpg?raw=true" class="blogimg" style="width:300px;height:300px;">
-                          <img src="IMAGE_URL_8" class="blogimg" style="width:300px;height:300px;">
-                          <img src="IMAGE_URL_9" class="blogimg" style="width:300px;height:300px;">
-                      </div>
-                      <div class="description">
-                          <p>Short description for the third photo.</p>
-                      </div>
-                  </div>
-                  <!-- Repeat this structure for other images -->
-              </div>
+<!-- ======= Blog Section ======= -->
+<div class="header">
+  <h2>Luca Lovato's Photo collection</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>4 separate photo collections to view</h2>
+      <h5>These four photo collections are some of my best works, spanning different themes and ideas.</h5>
+      <div class="image-container">
+        <div class="image" data-aos="fade-up" data-aos-delay="200">
+          <p style="font-size: 25px">1. Contagious by Jonah Berger</p>
+          <div class="carousel">
+            <img src="IMAGE_URL_1" class="blogimg" style="width:300px;height:300px;">
+            <img src="IMAGE_URL_2" class="blogimg" style="width:300px;height:300px;">
+            <img src="IMAGE_URL_3" class="blogimg" style="width:300px;height:300px;">
           </div>
+          <div class="description">
+            <p>Short description for the first photo.</p>
+          </div>
+        </div>
+        <div class="image" data-aos="fade-up" data-aos-delay="200">
+          <p style="font-size: 25px">2. Don't Make Me Think by Steve Krug</p>
+          <div class="carousel">
+            <img src="IMAGE_URL_4" class="blogimg" style="width:300px;height:300px;">
+            <img src="IMAGE_URL_5" class="blogimg" style="width:300px;height:300px;">
+            <img src="IMAGE_URL_6" class="blogimg" style="width:300px;height:300px;">
+          </div>
+          <div class "description">
+            <p>Short description for the second photo.</p>
+          </div>
+        </div>
+        <div class="image" data-aos="fade-up" data-aos-delay="200">
+          <p style="font-size: 25px">3. Influence by Robert Cialdini</p>
+          <div class="carousel">
+            <img src="IMAGE_URL_7" class="blogimg" style="width:300px;height:300px;">
+            <img src="IMAGE_URL_8" class="blogimg" style="width:300px;height:300px;">
+            <img src="IMAGE_URL_9" class="blogimg" style="width:300px;height:300px;">
+          </div>
+          <div class="description">
+            <p>Short description for the third photo.</p>
+          </div>
+        </div>
+        <!-- Repeat this structure for other images -->
       </div>
+    </div>
   </div>
-  
-
-<!-- JavaScript for the image gallery -->
-<script>
-    const images = document.querySelectorAll('.image');
-    images.forEach((image, index) => {
-        image.addEventListener('click', () => {
-            openImageModal(index);
-        });
-    });
-
-    function openImageModal(index) {
-        // Create a modal for the image carousel
-        const modal = document.createElement('div');
-        modal.classList.add('modal');
-        modal.innerHTML = `
-            <span class="close" onclick="closeImageModal()">&times;</span>
-            <div class="image-carousel">
-                <img src="IMAGE_URL_1" alt="Image 1">
-                <img src="IMAGE_URL_2" alt="Image 2">
-                <img src="IMAGE_URL_3" alt="Image 3">
-                <!-- Add more images as needed -->
-            </div>
-        `;
-        document.body.appendChild(modal);
-        modal.style.display = 'block';
-
-        // Handle closing the modal
-        function closeImageModal() {
-            modal.style.display = 'none';
-            document.body.removeChild(modal);
-        }
-
-        modal.querySelector('.close').addEventListener('click', closeImageModal);
-    }
-</script>
+</div>
 
       <!-- End About Section -->
   </main><!-- End #main -->
@@ -170,6 +134,41 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- JavaScript for the image gallery -->
+<script>
+  const images = document.querySelectorAll('.image');
+  images.forEach((image, index) => {
+      image.addEventListener('click', () => {
+          openImageModal(index);
+      });
+  });
+
+  function openImageModal(index) {
+      // Create a modal for the image carousel
+      const modal = document.createElement('div');
+      modal.classList.add('modal');
+      modal.innerHTML = `
+          <span class="close" onclick="closeImageModal()">&times;</span>
+          <div class="image-carousel">
+              <img src="IMAGE_URL_1" alt="Image 1">
+              <img src="IMAGE_URL_2" alt="Image 2">
+              <img src="IMAGE_URL_3" alt="Image 3">
+              <!-- Add more images as needed -->
+          </div>
+      `;
+      document.body.appendChild(modal);
+      modal.style.display = 'block';
+
+      // Handle closing the modal
+      function closeImageModal() {
+          modal.style.display = 'none';
+          document.body.removeChild(modal);
+      }
+
+      modal.querySelector('.close').addEventListener('click', closeImageModal);
+  }
+</script>
 
 </body>
 
