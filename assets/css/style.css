@@ -590,12 +590,14 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-content: space-between;
   width: 90vw;
 }
 
 .imgStyle {
-  width: 25%;
-  height: auto;    
+  width: 20%;
+  aspect-ratio: 1 / 1;  
+  object-fit: cover;
 }
 
 /* Services Section
