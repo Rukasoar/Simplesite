@@ -589,6 +589,8 @@ body {
 .imgRow {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vw;
 }
 
 .imgStyle {
