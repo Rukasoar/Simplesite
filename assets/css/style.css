@@ -595,10 +595,14 @@ body {
   margin: 0 auto;
 }
 
-.imgRow img {
+.imgRow a {
   width: 20%;
-  aspect-ratio: 1 / 1;  
   margin: 5px 5px;
+  }
+
+.imgRow img {
+  aspect-ratio: 1 / 1;
+  width: 100%;  
   object-fit: cover;
 }
 
