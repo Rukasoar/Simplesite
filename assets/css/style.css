@@ -594,9 +594,10 @@ body {
   width: 90vw;
 }
 
-.imgStyle {
-  width: 20%;
+img {
+  width: 25%;
   aspect-ratio: 1 / 1;  
+  margin: 5px 5px;
   object-fit: cover;
 }
 
