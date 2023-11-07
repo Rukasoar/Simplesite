@@ -589,10 +589,11 @@ body {
 .row {
   display: flex;
   flex-direction: row;
-}
 
-.column {
-  width: 100;
+  img {
+    width: 100px;
+    height: 100px;    
+  }
 }
 
 /* Services Section
