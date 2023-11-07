@@ -595,10 +595,15 @@ body {
 }
 
 img {
-  width: 25%;
+  width: 20%;
   aspect-ratio: 1 / 1;  
   margin: 5px 5px;
   object-fit: cover;
+}
+
+img:hover {
+  aspect-ratio: auto;
+  height: auto;
 }
 
 /* Services Section
