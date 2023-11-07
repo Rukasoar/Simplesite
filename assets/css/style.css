@@ -586,7 +586,7 @@ body {
   margin-top: 20px;
 }
 
-.row {
+.imgRow {
   display: flex;
   flex-direction: row;
 
