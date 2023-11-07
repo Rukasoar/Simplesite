@@ -602,6 +602,15 @@ body {
   object-fit: cover;
 }
 
+/* Blog image pages column */
+/* CSS for Two Columns */
+.column {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 /* Services Section
 --------------------------------*/
 #services {
