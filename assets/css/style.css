@@ -586,11 +586,13 @@ body {
   margin-top: 20px;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  width: 100;
 }
 
 /* Services Section
