@@ -591,11 +591,11 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
-  width: 90vw;
+  width: 100vw;
   margin: 0 auto;
 }
 
-img {
+.imgRow img {
   width: 20%;
   aspect-ratio: 1 / 1;  
   margin: 5px 5px;
